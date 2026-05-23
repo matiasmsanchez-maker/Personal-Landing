@@ -189,7 +189,7 @@
       display: grid;
       grid-template-columns: clamp(60px, 8vw, 90px) 1fr 1fr 1fr;
       gap: clamp(4px, 0.5vw, 8px);
-      align-items: center;
+      align-items: stretch;
     }
     .agents-section-label {
       font-size: clamp(10px, 1.2vh, 13px);
@@ -198,6 +198,8 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       white-space: nowrap;
+      display: flex;
+      align-items: center;
     }
     .agent-chip {
       display: flex;
