@@ -164,8 +164,14 @@
       display: flex;
       flex-direction: column;
     }
-    .quadrant-top-right .links-list {
+    .files-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 1.5vw;
       flex: 1;
+      overflow-y: auto;
+    }
+    .files-columns .links-list {
       overflow-y: auto;
     }
 
@@ -510,79 +516,83 @@
 
       <!-- Top Right: Archivos -->
       <div class="panel quadrant-top-right">
-        <div class="links-list">
+        <div class="files-columns">
 
-          <div class="panel-title" style="margin-top:0; border-top:none">Weekly Reports</div>
+          <div class="links-list">
+            <div class="panel-title" style="margin-top:0; border-top:none">Weekly Reports</div>
 
-          <div class="links-subtitle">B2B</div>
-          <div class="link-item" onclick="navigateTo('https://docs.google.com/presentation/d/17FM0vhVoQUhjonvSOZy1Ebp01FpO5UsTnn1IksDHaYU/edit?slide=id.g3658a8d4190_0_0#slide=id.g3658a8d4190_0_0')">
-            <div class="link-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                <path d="M8 21h8"/><path d="M12 17v4"/>
-              </svg>
+            <div class="links-subtitle">B2B</div>
+            <div class="link-item" onclick="navigateTo('https://docs.google.com/presentation/d/17FM0vhVoQUhjonvSOZy1Ebp01FpO5UsTnn1IksDHaYU/edit?slide=id.g3658a8d4190_0_0#slide=id.g3658a8d4190_0_0')">
+              <div class="link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <path d="M8 21h8"/><path d="M12 17v4"/>
+                </svg>
+              </div>
+              <div class="link-info">
+                <h4>Semanal B2B</h4>
+                <p>Presentación semanal del equipo B2B</p>
+              </div>
             </div>
-            <div class="link-info">
-              <h4>Semanal B2B</h4>
-              <p>Presentación semanal del equipo B2B</p>
+
+            <div class="links-subtitle">B2B2C</div>
+            <div class="link-item" id="b2b2c-link" onclick="openLink('b2b2c')" style="display:none">
+              <div class="link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <path d="M8 21h8"/><path d="M12 17v4"/>
+                </svg>
+              </div>
+              <div class="link-info">
+                <h4 id="b2b2c-name">Cargando...</h4>
+                <p id="b2b2c-date"></p>
+              </div>
+            </div>
+
+            <div class="links-subtitle">Semanal N-1</div>
+            <div class="link-item" id="n1-link" onclick="openLink('n1')" style="display:none">
+              <div class="link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <path d="M8 21h8"/><path d="M12 17v4"/>
+                </svg>
+              </div>
+              <div class="link-info">
+                <h4 id="n1-name">Cargando...</h4>
+                <p id="n1-date"></p>
+              </div>
             </div>
           </div>
 
-          <div class="links-subtitle">B2B2C</div>
-          <div class="link-item" id="b2b2c-link" onclick="openLink('b2b2c')" style="display:none">
-            <div class="link-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                <path d="M8 21h8"/><path d="M12 17v4"/>
-              </svg>
-            </div>
-            <div class="link-info">
-              <h4 id="b2b2c-name">Cargando...</h4>
-              <p id="b2b2c-date"></p>
-            </div>
-          </div>
+          <div class="links-list">
+            <div class="panel-title" style="margin-top:0; border-top:none">Monthly and Others</div>
 
-          <div class="links-subtitle">Semanal N-1</div>
-          <div class="link-item" id="n1-link" onclick="openLink('n1')" style="display:none">
-            <div class="link-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                <path d="M8 21h8"/><path d="M12 17v4"/>
-              </svg>
+            <div class="links-subtitle">Media</div>
+            <div class="link-item" id="media-link" onclick="openLink('media')" style="display:none">
+              <div class="link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <path d="M8 21h8"/><path d="M12 17v4"/>
+                </svg>
+              </div>
+              <div class="link-info">
+                <h4 id="media-name">Cargando...</h4>
+                <p id="media-date"></p>
+              </div>
             </div>
-            <div class="link-info">
-              <h4 id="n1-name">Cargando...</h4>
-              <p id="n1-date"></p>
-            </div>
-          </div>
 
-          <div class="panel-title" style="margin-top:clamp(6px, 1vh, 12px)">Monthly and Others</div>
-
-          <div class="links-subtitle">Media</div>
-          <div class="link-item" id="media-link" onclick="openLink('media')" style="display:none">
-            <div class="link-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                <path d="M8 21h8"/><path d="M12 17v4"/>
-              </svg>
-            </div>
-            <div class="link-info">
-              <h4 id="media-name">Cargando...</h4>
-              <p id="media-date"></p>
-            </div>
-          </div>
-
-          <div class="links-subtitle">Credit Risk Exposure</div>
-          <div class="link-item" id="creditrisk-link" onclick="openLink('creditrisk')" style="display:none">
-            <div class="link-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                <path d="M8 21h8"/><path d="M12 17v4"/>
-              </svg>
-            </div>
-            <div class="link-info">
-              <h4 id="creditrisk-name">Cargando...</h4>
-              <p id="creditrisk-date"></p>
+            <div class="links-subtitle">Credit Risk Exposure</div>
+            <div class="link-item" id="creditrisk-link" onclick="openLink('creditrisk')" style="display:none">
+              <div class="link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <path d="M8 21h8"/><path d="M12 17v4"/>
+                </svg>
+              </div>
+              <div class="link-info">
+                <h4 id="creditrisk-name">Cargando...</h4>
+                <p id="creditrisk-date"></p>
+              </div>
             </div>
           </div>
 
